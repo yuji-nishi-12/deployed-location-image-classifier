@@ -7,7 +7,7 @@ from PIL import Image
 from io import BytesIO
 from model import ImageClassifier
 
-st.title("Location Image Classifier")
+st.title("Location Image Classifier...")
 st.text("Provide URL of Location Image for image classification")
 
 classes = ['buildings', 'forest', 'glacier', 'mountain', 'sea', 'street']

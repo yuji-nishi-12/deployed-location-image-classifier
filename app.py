@@ -3,7 +3,6 @@ import torch
 from torchvision.transforms import transforms
 import numpy as np
 import requests
-from pathlib import Path
 from PIL import Image
 from io import BytesIO
 from model import ImageClassifier
@@ -12,13 +11,12 @@ st.title("Location Image Classifier")
 st.text("Provide URL of Location Image for image classification")
 
 classes = ['buildings', 'forest', 'glacier', 'mountain', 'sea', 'street']
-MODEL_PATH = Path(__file__).parent / "models" / "image_intel_model_0.pth"
 
 @st.cache_resource
 def load_model():
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     model = ImageClassifier(num_classes=len(classes))
-    model.load_state_dict(torch.load(str(MODEL_PATH), map_location=device))
+    model.load_state_dict(torch.load("/app/models/image_intel_model_0.pth", map_location=device))
     model.eval()
     return model, device
 
@@ -59,3 +57,5 @@ if path:
 
     except Exception as e:
         st.error(f"Error processing image: {e}")
+
+print("Triggering Cloudbuild trigger...")

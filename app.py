@@ -57,5 +57,3 @@ if path:
 
     except Exception as e:
         st.error(f"Error processing image: {e}")
-
-print("Triggering Cloudbuild trigger...")

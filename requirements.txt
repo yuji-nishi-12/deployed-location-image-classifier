@@ -1,0 +1,9 @@
+# Run this file with the command: pip install -r requirements.txt
+torch
+torchvision
+streamlit
+pillow
+pandas
+matplotlib
+numpy
+requests

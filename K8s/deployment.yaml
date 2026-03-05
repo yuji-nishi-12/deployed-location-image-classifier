@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: location-classifier-deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: location-classifier
+  template:
+    metadata:
+      labels:
+        app: location-classifier
+    spec:
+      containers:
+      - name: classifier-container
+        image: gcr.io/ai-ml-489203/location-classifier:v1
+        ports:
+        - containerPort: 8501

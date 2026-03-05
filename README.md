@@ -17,6 +17,9 @@ The current app performs **multi-class label** prediction (softmax + argmax) and
   - `service.yaml`
 - `cloudbuild.yaml` — Google Cloud Build pipeline (build → push → deploy)
 
+## Cloudbuild triggering
+Make some changes in the code and push it to remote repository.
+
 ## Notes
 
 - The model weights must be present at `models/image_intel_model_0.pth` for inference.
